@@ -31,6 +31,12 @@ bookmarkRouter
                 .status(400)
                 .send('Rating is required')
         }
+        if (isNaN(rating)) {
+            logger.error('Rating value must be a number')
+            res
+                .status(400)
+                .send('Rating value must be a number')
+        }
         if(!url.startsWith('https://')) {
             res
                 .status(400)
